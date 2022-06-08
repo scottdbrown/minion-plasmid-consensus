@@ -57,6 +57,14 @@ This pipeline is designed to be run on BCGSC compute infrastructure, consisting 
 
 Please make sure your user account has passwordless ssh access to both `numbers` and `slurmgpu01`.
 
+#### Fine-tuned Bonito basecalling model
+
+The finetuned Bonito basecalling model is available at [dna_r10.3_BCRxV.TF_finetuned | Zenodo](https://zenodo.org/record/6626041)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6626041.svg)](https://doi.org/10.5281/zenodo.6626041)
+
+Download these files and update the path to the Bonito model in the config.yaml file.
+
 ## Procedure Work Instructions
 
 #### 1. Copy the raw fast5 data
