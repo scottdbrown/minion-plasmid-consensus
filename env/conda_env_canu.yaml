@@ -1,0 +1,8 @@
+name: MinION_SeqVal_Pipeline_Canu
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+  - anaconda
+dependencies:
+  - canu==2.0
