@@ -48,7 +48,7 @@ ONT's Guppy GPU basecaller needs to be installed. This pipeline has been tested 
 
 ```bash
 (base) [user@server /path/to/bin/Guppy_GPU_v5.0.11]
-λ tar -zxvf ont-guppy_5.0.11_linux64.tar.gz
+$ tar -zxvf ont-guppy_5.0.11_linux64.tar.gz
 ```
 
 #### GSC Servers
@@ -69,7 +69,7 @@ Download these files and update the path to the Bonito model in the config.yaml 
 
 #### 1. Copy the raw fast5 data
 
-First we need to copy the raw fast5 sequence data from the Data drive (on the computer connected to the MinION device) to your own networked working directory. While logged in to this computer, copy the entire directory of your sequencing run to a space on your mapped network drive using Windows Robocopy. After the copy is complete, confirm that the directory sizes and number of files are the same on the MinION computer and your working directory.
+First we need to copy the raw fast5 sequence data from the Data drive (on the computer connected to the MinION device) to your own networked working directory (if you will not be performing the analysis on the same computer). Copy the entire directory of your sequencing run to a space on your mapped network drive. After the copy is complete, confirm that the directory sizes and number of files are the same on the MinION computer and your working directory.
 
 #### 2. Set up `config.yaml` file
 
@@ -211,14 +211,14 @@ Navigate to the `pipeline` root dir:
 
 ```bash
 (base) [user@gphost00 ~]
-λ cd /path/to/minion-plasmid-consensus/
+$ cd /path/to/minion-plasmid-consensus/
 ```
 
 Run the pipeline. Ideally set `-j` to at least 32. Make sure to include the `--use-conda` flag. Override the template configfile with the `--configfile` argument. To prevent apparent missing files due to filesystem latency between gphost and cluster, use the `--latency-wait 60` arg. Add the rule-specific cluster submission arg `--cluster "ssh [USERNAME]@{params.cluster_head_node} 'sbatch {params.cluster_specific_args}'"`, replacing `[USERNAME]` with your username:
 
 ```bash
 (base) [user@gphost00 /path/to/minion-plasmid-consensus]
-λ snakemake -p -j 32 --use-conda --configfile /path/to/config.yaml --latency-wait 60 --cluster "ssh user@{params.cluster_head_node} 'sbatch {params.cluster_specific_args}'"
+$ snakemake -p -j 32 --use-conda --configfile /path/to/config.yaml --latency-wait 60 --cluster "ssh user@{params.cluster_head_node} 'sbatch {params.cluster_specific_args}'"
 ```
 
 Note that the first time this is run, `snakemake` needs to download and install the conda environment, which may take some time (tests in February 2021 on `gphost08` took 2-3 days. This may be sped up by using [mamba]([GitHub - mamba-org/mamba: The Fast Cross-Platform Package Manager](https://github.com/mamba-org/mamba)).
