@@ -4,7 +4,7 @@ June 8, 2022
 
 Scott Brown
 
-Citation: TBD
+Citation: Brown, S.D., Dreolini, L., Wilson, J.F. et al. Complete sequence verification of plasmid DNA using the Oxford Nanopore Technologies’ MinION device. BMC Bioinformatics 24, 116 (2023). https://doi.org/10.1186/s12859-023-05226-y
 
 ## Purpose
 
